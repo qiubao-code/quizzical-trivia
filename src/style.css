@@ -1,0 +1,59 @@
+@import '~antd/dist/antd.css';
+
+/* shape imgs */
+.shape-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20vw;
+  /* margin-top: -24px; */
+}
+
+.shape-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 20vw;
+  left: 0;
+}
+
+/* game intro */
+.game-intro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.game-title{
+  font-weight: 700;
+  font-size: 2em;
+}
+.game-text{
+  font-family: "Inter", sans-serif;
+  font-size: 1em;
+}
+
+/* category choose */
+.ant-menu-submenu > .ant-menu {
+  height: 100px;
+  overflow: auto;
+}
+
+.site-layout-content {
+  position: relative;
+  min-height: 500px;
+  padding: 24px;
+  background: #fff;
+}
+
+#components-layout-demo-top .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
