@@ -17,23 +17,25 @@
 }
 
 /* game intro */
-.game-intro{
+.game-intro {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.game-title{
+
+.game-title {
   font-weight: 700;
   font-size: 2em;
 }
-.game-text{
+
+.game-text {
   font-family: "Inter", sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 /* category choose */
-.ant-menu-submenu > .ant-menu {
+.ant-menu-submenu>.ant-menu {
   height: 100px;
   overflow: auto;
 }
@@ -56,4 +58,25 @@
 .ant-row-rtl #components-layout-demo-top .logo {
   float: right;
   margin: 16px 0 16px 24px;
+}
+
+.game-options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-container {
+  margin: 1em;
+}
+
+.custom-label {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-right: 1.5em;
+}
+
+.custom-button {
+  margin-top: 2em;
 }

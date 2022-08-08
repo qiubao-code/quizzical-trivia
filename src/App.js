@@ -9,47 +9,74 @@ import data from "./data"
 
 export default function App() {
     const { Header, Content, Footer } = Layout;
-    const [category,setCategory] = React.useState({data});
+    const [category, setCategory] = React.useState({ data });
     console.log(category);
 
-    const handleButtonClick = (e) => {
-        message.info('Click on left button.');
-        console.log('click left button', e);
-    };
+    // const handleButtonClick = (e) => {
+    //     message.info('Click on left button.');
+    //     console.log('click left button', e);
+    // };
 
-    const handleMenuClick = (e) => {
+    const handleMenuOneClick = (e) => {
         message.info('Click on menu item.');
         console.log('click', e);
     };
-    function setMenu(){
-        for(let i = 0;i<category.data.length;i++){
-            return{
-                label:category.data[i].value,
-                key:category.data[i].id
-            }
-        }
-    }
 
-    const menu = (
+    const handleMenuTwoClick = (e) => {
+        message.info('Click on menu item.');
+        console.log('click', e);
+    };
+
+    const menuOne = (
         <Menu
-            onClick={handleMenuClick}
-            items={data.map(item=>({label:item.value,key:item.id}))}
-            // items={[
-            //     {
-            //         label: 'Any Category',
-            //         key: '1',
-            //     },
-            //     {
-            //         label: '2nd menu item',
-            //         key: '2',
-            //     },
-            //     {
-            //         label: '3rd menu item',
-            //         key: '3',
-            //     },
-            // ]}
+            onClick={handleMenuOneClick}
+            items={data.map(item => ({ label: item.value, key: item.id }))}
         />
     );
+
+    const menuTwo = (
+        <Menu
+            onClick={handleMenuTwoClick}
+            items={[
+                {
+                    label: 'Any Difficulty',
+                    key: '1',
+                },
+                {
+                    label: 'Easy',
+                    key: '2',
+                },
+                {
+                    label: 'Medium',
+                    key: '3',
+                },
+                {
+                    label: 'Hard',
+                    key: '4',
+                },
+            ]}
+        />
+    )
+    const menuThree = (
+        <Menu
+            onClick={handleMenuTwoClick}
+            items={[
+                {
+                    label: 'Any Type',
+                    key: '1',
+                },
+                {
+                    label: 'Multiple Choice',
+                    key: '2',
+                    value: 'multiple'
+                },
+                {
+                    label: 'True / False',
+                    key: '3',
+                },
+            ]}
+        />
+    )
     return (
         <Layout className="layout">
             <Header>
@@ -85,17 +112,58 @@ export default function App() {
                         <h1 className="game-title">Quizzical</h1>
                         <p className="game-text">Answer the questions and test your knowledge!</p>
                     </div>
+                    <div className="game-options-container">
+                        <div className="select-container">
+                            <label className="custom-label" htmlFor="category">Category:</label>
+                            <Dropdown
+                                overlay={menuOne}
+                                trigger={['click']}
+                                value={category}
+                            >
+                                <Button>
+                                    <Space>
+                                        Any category
+                                        <DownOutlined />
+                                    </Space>
+                                </Button>
+                            </Dropdown>
+                        </div>
+                        <div className="select-container">
+                            <label className="custom-label" htmlFor="difficulty">Difficulty:</label>
+                            <Dropdown
+                                overlay={menuTwo}
+                                trigger={['click']}
+                            >
+                                <Button>
+                                    <Space>
+                                        Any Difficulty
+                                        <DownOutlined />
+                                    </Space>
+                                </Button>
+                            </Dropdown>
 
-                    <Dropdown overlay={menu} trigger={['click']} >
-                        <Button>
-                            <Space>
-                                Button
-                                <DownOutlined />
-                            </Space>
+                        </div>
+                        <div className="select-container">
+                            <label className="custom-label" htmlFor="type">Type of question:</label>
+                            <Dropdown
+                                overlay={menuThree}
+                                trigger={['click']}
+                            >
+                                <Button>
+                                    <Space>
+                                        Any Type
+                                        <DownOutlined />
+                                    </Space>
+                                </Button>
+                            </Dropdown>
+
+                        </div>
+                        <Button type="primary" shape="round" size="large" className="custom-button">
+                            Start Quiz!
                         </Button>
-                    </Dropdown>
+                    </div>
 
-                    <QusitionList />
+                    {/* <QusitionList /> */}
                     <img className="shape-bottom" src={shapeBottom} alt="shape-bottom" />
                 </div>
 
