@@ -22,17 +22,17 @@ export default function App() {
         setGameStart(true);
     }
 
-    function handleGameOptions(value,event){
-        const {name} = event;
+    function handleGameOptions(value, event) {
+        const { name } = event;
         // console.log(name)
-        setGameOptions(preOptions=>{
-            return{
+        setGameOptions(preOptions => {
+            return {
                 ...preOptions,
-                [name]:value
+                [name]: value
             }
         })
     }
-    console.log(gameOptions);
+    // console.log(gameOptions);
     return (
         <Layout className="layout">
             <Header>
@@ -66,7 +66,9 @@ export default function App() {
                     {
                         gameStart
                             ?
-                            <QusitionList />
+                            <QusitionList
+                                gameOptions={gameOptions}
+                            />
                             :
                             <Homepage
                                 value={gameStart}

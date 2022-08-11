@@ -1,6 +1,6 @@
 const category = [
     {
-        id: 1,
+        id: "",
         value: "Any Category"
     },
     {
